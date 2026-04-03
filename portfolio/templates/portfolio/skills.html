@@ -1,0 +1,87 @@
+{% extends 'portfolio/base.html' %}
+{% block title %}Skills — Jericho Blando{% endblock %}
+{% block content %}
+
+<div class="skills-bg">
+  <div class="section">
+    <p class="section-label">What I Know</p>
+    <h1 class="section-title">Skills &amp;<br>Technologies</h1>
+    <div class="divider"></div>
+
+    <div class="skills-categories">
+      {% if languages %}
+      <div class="skill-category fade-in">
+        <h3><i data-feather="code" style="width:14px;height:14px;"></i> Languages</h3>
+        {% for skill in languages %}
+        <div class="skill-item">
+          <div class="skill-header">
+            <span>{{ skill.name }}</span>
+            <span>{{ skill.proficiency }}%</span>
+          </div>
+          <div class="skill-bar">
+            <div class="skill-fill" style="width:{{ skill.proficiency }}%"></div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+      {% endif %}
+
+      {% if frameworks %}
+      <div class="skill-category fade-in">
+        <h3><i data-feather="layers" style="width:14px;height:14px;"></i> Frameworks</h3>
+        {% for skill in frameworks %}
+        <div class="skill-item">
+          <div class="skill-header">
+            <span>{{ skill.name }}</span>
+            <span>{{ skill.proficiency }}%</span>
+          </div>
+          <div class="skill-bar">
+            <div class="skill-fill" style="width:{{ skill.proficiency }}%"></div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+      {% endif %}
+
+      {% if tools %}
+      <div class="skill-category fade-in">
+        <h3><i data-feather="tool" style="width:14px;height:14px;"></i> Tools</h3>
+        {% for skill in tools %}
+        <div class="skill-item">
+          <div class="skill-header">
+            <span>{{ skill.name }}</span>
+            <span>{{ skill.proficiency }}%</span>
+          </div>
+          <div class="skill-bar">
+            <div class="skill-fill" style="width:{{ skill.proficiency }}%"></div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+      {% endif %}
+
+      {% if others %}
+      <div class="skill-category fade-in">
+        <h3><i data-feather="star" style="width:14px;height:14px;"></i> Other</h3>
+        {% for skill in others %}
+        <div class="skill-item">
+          <div class="skill-header">
+            <span>{{ skill.name }}</span>
+            <span>{{ skill.proficiency }}%</span>
+          </div>
+          <div class="skill-bar">
+            <div class="skill-fill" style="width:{{ skill.proficiency }}%"></div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+      {% endif %}
+
+      {% if not languages and not frameworks and not tools and not others %}
+      <p style="color:var(--muted)">No skills added yet. Add them from the Django admin panel.</p>
+      {% endif %}
+    </div>
+  </div>
+</div>
+
+{% endblock %}

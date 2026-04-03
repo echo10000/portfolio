@@ -1,0 +1,66 @@
+{% extends 'portfolio/base.html' %}
+{% block title %}About — Jericho Blando{% endblock %}
+{% block content %}
+
+<div class="section">
+  <p class="section-label">About Me</p>
+  <h1 class="section-title">A little bit<br>about myself</h1>
+  <div class="divider"></div>
+
+  <div class="about-grid">
+    <div class="about-text fade-in">
+      {% if profile %}
+        <p>{{ profile.bio }}</p>
+        <p>{{ profile.career_goals }}</p>
+      {% else %}
+        <p>I'm Jericho Blando, an Information Technology student with a passion for web development and software engineering. I enjoy solving real-world problems through clean, efficient code.</p>
+        <p>My journey in tech started with curiosity and grew into a full commitment to building meaningful digital experiences. I'm currently expanding my skills in Django, Python, and modern web technologies.</p>
+      {% endif %}
+    </div>
+
+    <div class="fade-in">
+      <div class="about-card">
+        <h3>Quick Info</h3>
+        <div class="about-stat">
+          <span class="about-stat-icon"><i data-feather="map-pin"></i></span>
+          <div class="about-stat-text">
+            <strong>Location</strong>
+            Cebu, Philippines
+          </div>
+        </div>
+        <div class="about-stat">
+          <span class="about-stat-icon"><i data-feather="book-open"></i></span>
+          <div class="about-stat-text">
+            <strong>Program</strong>
+            BS Information Technology
+          </div>
+        </div>
+        <div class="about-stat">
+          <span class="about-stat-icon"><i data-feather="code"></i></span>
+          <div class="about-stat-text">
+            <strong>Focus</strong>
+            Web Development
+          </div>
+        </div>
+        <div class="about-stat">
+          <span class="about-stat-icon"><i data-feather="mail"></i></span>
+          <div class="about-stat-text">
+            <strong>Email</strong>
+            {% if profile %}{{ profile.email }}{% else %}jericho@example.com{% endif %}
+          </div>
+        </div>
+        {% if profile and profile.github %}
+        <div class="about-stat">
+          <span class="about-stat-icon"><i data-feather="github"></i></span>
+          <div class="about-stat-text">
+            <strong>GitHub</strong>
+            <a href="{{ profile.github }}" target="_blank" style="color:var(--teal)">View Profile</a>
+          </div>
+        </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
